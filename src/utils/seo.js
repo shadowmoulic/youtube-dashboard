@@ -522,7 +522,7 @@ export const analyzeVideo = (video, competitorData = null) => {
     }
 
     // Brackets check
-    if (!/[[(].*[])]/.test(title)) {
+    if (!/(\[.*?\]|\(.*?\))/.test(title)) {
         specificActions.push({
             type: 'title',
             issue: 'No brackets for emphasis',
