@@ -423,13 +423,6 @@ export const generatePDFReport = (selectedVideos, userInfo) => {
     return fileName;
 };
 
-function formatNumber(num) {
-    return new Intl.NumberFormat('en-US', {
-        notation: "compact",
-        compactDisplay: "short",
-        maximumFractionDigits: 1
-    }).format(num);
-}
 
 // Keep existing utility functions
 export const analyzeVideo = (video, competitorData = null) => {
@@ -529,7 +522,7 @@ export const analyzeVideo = (video, competitorData = null) => {
     }
 
     // Brackets check
-    if (!/[\[\(].*[\]\)]/.test(title)) {
+    if (!/[[({].*[])}]/.test(title)) {
         specificActions.push({
             type: 'title',
             issue: 'No brackets for emphasis',
