@@ -522,7 +522,7 @@ export const analyzeVideo = (video, competitorData = null) => {
     }
 
     // Brackets check
-    if (!/[[({].*[])}]/.test(title)) {
+    if (!/[[(].*[])]/.test(title)) {
         specificActions.push({
             type: 'title',
             issue: 'No brackets for emphasis',
@@ -808,7 +808,7 @@ export const extractChannelIdentifier = (url) => {
     }
 };
 
-export const formatNumberCompact = (num) => {
+export const formatNumber = (num) => {
     return new Intl.NumberFormat('en-US', {
         notation: "compact",
         compactDisplay: "short",
